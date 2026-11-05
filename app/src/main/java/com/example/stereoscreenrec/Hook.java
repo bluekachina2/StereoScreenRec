@@ -69,6 +69,10 @@ public class Hook implements IXposedHookLoadPackage {
                         }
                     });
 
+            // Fix AV desync: the recorder computes audio PTS assuming mono, so
+            // with stereo forced every audio timestamp is 2x too large.
+            Hook_timestamp_fix.install();
+
             XposedBridge.log(TAG + "hooks installed in SystemUI");
         } catch (Throwable t) {
             XposedBridge.log(TAG + "failed: " + t);
