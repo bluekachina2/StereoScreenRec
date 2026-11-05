@@ -3,7 +3,18 @@
     <application
         android:allowBackup="false"
         android:label="Stereo Screen Recorder">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:label="Stereo Screen Recorder">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="xposedsharedprefs" android:value="true" />
         <meta-data android:name="xposeddescription"
             android:value="Makes the system screen recorder capture device audio in stereo instead of mono." />
         <meta-data android:name="xposedminversion" android:value="82" />

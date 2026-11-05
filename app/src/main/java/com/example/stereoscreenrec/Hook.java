@@ -73,6 +73,9 @@ public class Hook implements IXposedHookLoadPackage {
             // with stereo forced every audio timestamp is 2x too large.
             Hook_timestamp_fix.install();
 
+            // User-selectable video codec / bitrate (see SettingsActivity).
+            Hook_video.install();
+
             XposedBridge.log(TAG + "hooks installed in SystemUI");
         } catch (Throwable t) {
             XposedBridge.log(TAG + "failed: " + t);
